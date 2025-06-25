@@ -1,79 +1,85 @@
-1. # 🚀 DevCopilot – AI Assistant for Developer Notes (RAG Demo)
+# 🧠 DevCopilot – AI Assistant for Developer Notes (RAG + Streamlit)
 
-DevCopilot is a lightweight AI assistant built with a **Retrieval-Augmented Generation (RAG)** pipeline that lets you query your own developer notes using natural language. Powered by **LangChain**, **HuggingFace**, and **FAISS**, it runs 100% locally — no OpenAI dependency.
+DevCopilot is a lightweight AI assistant that lets you query your own developer notes using natural language.
+
+Built using:
+- **LangChain** (Community edition)
+- **HuggingFace Embeddings**
+- **FAISS vector search**
+- **Streamlit UI**
+
+No OpenAI API required.
 
 ---
 
 ## 💡 Features
 
-- ✅ Embed your dev notes using HuggingFace transformers
-- 🔍 Search relevant chunks with FAISS vector similarity
-- 🧠 Get question-answering from your own documents
-- 🔐 No OpenAI or API cost — fully offline-friendly
-- 🛠️ Modular: plug in real LLMs or wrap in a Streamlit UI
+- 📄 Query your `.txt` notes locally using RAG
+- 🧠 Embed text with HuggingFace transformers (`all-MiniLM-L6-v2`)
+- 🔍 Retrieve answers using FAISS
+- 🖥️ Ask questions via a clean Streamlit interface
+- ✅ Zero OpenAI dependency
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **LangChain (Community & HuggingFace)**
-- **Sentence Transformers** (`all-MiniLM-L6-v2`)
-- **FAISS** for vector search
-- **dotenv** for local environment config
-- **Python 3.9+**
+- Python 3.9+
+- Streamlit
+- LangChain (community)
+- HuggingFace Sentence Transformers
+- FAISS
+- dotenv
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repo
+Clone this repo:
 
 ```bash
 git clone https://github.com/DIVYANI-DROID/devcopilot.git
 cd devcopilot
-
-2. Create and Activate a Virtual Environment
-
 python3 -m venv venv
 source venv/bin/activate
-
-3. Install Dependencies
 pip install -r requirements.txt
 
-📌 Usage
-Step 1: Add your notes
-Place your notes as .txt files in the data/ folder. For example:
-data/dev_notes.txt
+Add your .txt files (like dev_notes.txt) inside the data/ folder.
 
-Step 2: Build the Vector DB
-
-python rag/vectorstore.py
-
-Step 3: Ask Questions
-python rag/retriever.py
-Example prompt:
-Ask a question: How do I activate a Python virtual environment?
+Then run:
+python rag/vectorstore.py   # Build FAISS vector DB
+python rag/retriever.py     # Test RAG logic
+streamlit run app.py        # Launch the Streamlit app
 
 📁 Project Structure
 devcopilot/
-├── data/             # Your developer notes (.txt)
-├── faiss_index/      # Saved FAISS vector store
+├── data/                # Input .txt files
+├── faiss_index/         # Stored vector database
 ├── rag/
-│   ├── vectorstore.py    # Builds the vector index
-│   └── retriever.py      # Retrieves answers from the vector DB
-├── .env              # Optional (for future API keys)
+│   ├── vectorstore.py   # Build vector store from notes
+│   └── retriever.py     # RAG retriever + answer logic
+├── app.py               # Streamlit UI
 ├── requirements.txt
 └── README.md
 
-🔮 Coming Soon (Optional Extensions)
-✅ Real Hugging Face LLM (FLAN-T5, Mistral)
-
-💻 Streamlit UI chatbot interface
-
-📦 HuggingFace Spaces deployment
-
-🧪 Auto-updating vector store on file change
+🤖 Demo Preview
+Coming soon: Hosted on Hugging Face Spaces
 
 🙋‍♀️ Author
-Built by Divyani Audichya
-If you like this, ⭐️ the repo or share it on LinkedIn!
+👩‍💻 Divyani Audichya
+📍 Bengaluru, India
+🔗 GitHub
+
+⭐️ If you like this project...
+Give it a ⭐️ on GitHub, or connect with me on LinkedIn!
+This is part of my journey toward a Data Scientist / ML Engineer role at companies like Atlassian, Google, and Microsoft.
+
+
+---
+
+Once you paste that into `README.md`, save it, then commit & push:
+
+```bash
+git add README.md
+git commit -m "Update README to reflect Streamlit UI and project structure"
+git push
