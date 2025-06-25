@@ -29,7 +29,7 @@ DevCopilot is a lightweight AI assistant built with a **Retrieval-Augmented Gene
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/DIVYANI-DROID/devcopilot
+git clone https://github.com/DIVYANI-DROID/devcopilot.git
 cd devcopilot
 
 2. Create and Activate a Virtual Environment
