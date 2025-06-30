@@ -1,34 +1,32 @@
-# 🧠 DevCopilot – AI Assistant for Developer Notes (RAG + Streamlit)
+# 🧠 DevCopilot – AI Assistant for Developer Notes (RAG + HuggingFace + Streamlit)
 
-DevCopilot is a lightweight AI assistant that lets you query your own developer notes using natural language.
+DevCopilot is a lightweight RAG-based assistant that lets you query your personal `.txt` developer notes using natural language.
 
-Built using:
-- **LangChain** (Community edition)
-- **HuggingFace Embeddings**
-- **FAISS vector search**
-- **Streamlit UI**
-
-No OpenAI API required.
+✨ Built with:
+- **LangChain (Community)**
+- **HuggingFace Transformers** – no OpenAI API needed!
+- **FAISS** for local semantic search
+- **Streamlit** UI (optional)
 
 ---
 
 ## 💡 Features
 
-- 📄 Query your `.txt` notes locally using RAG
-- 🧠 Embed text with HuggingFace transformers (`all-MiniLM-L6-v2`)
-- 🔍 Retrieve answers using FAISS
-- 🖥️ Ask questions via a clean Streamlit interface
-- ✅ Zero OpenAI dependency
+- 🧠 Ask natural language questions over your `.txt` notes
+- 🪄 Embeds text using `all-MiniLM-L6-v2`
+- 🔍 Retrieves matching chunks with FAISS
+- 🧩 Chains retrieval with `google/flan-t5-base` (runs locally via Transformers)
+- ✅ 100% runs offline, no OpenAI, no cost
 
 ---
 
 ## 🛠️ Tech Stack
 
 - Python 3.9+
-- Streamlit
-- LangChain (community)
-- HuggingFace Sentence Transformers
+- LangChain (Community)
+- HuggingFace Transformers
 - FAISS
+- Streamlit (optional UI)
 - dotenv
 
 ---
@@ -44,42 +42,43 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-Add your .txt files (like dev_notes.txt) inside the data/ folder.
+Place your notes file (e.g. dev_notes.txt) in the data/ folder.
 
-Then run:
-python rag/vectorstore.py   # Build FAISS vector DB
-python rag/retriever.py     # Test RAG logic
-streamlit run app.py        # Launch the Streamlit app
+Then:
+python rag/vectorstore.py   # ✅ Build FAISS vector DB
+python rag/retriever.py     # ✅ Run retrieval + generation locally
+streamlit run app.py        # (optional) Launch Streamlit UI
 
 📁 Project Structure
+
 devcopilot/
-├── data/                # Input .txt files
-├── faiss_index/         # Stored vector database
+├── data/                # Text files with your notes
+├── faiss_index/         # Vector store saved here
 ├── rag/
-│   ├── vectorstore.py   # Build vector store from notes
-│   └── retriever.py     # RAG retriever + answer logic
+│   ├── vectorstore.py   # Ingest + embed documents
+│   └── retriever.py     # RAG pipeline using flan-t5-base
 ├── app.py               # Streamlit UI
 ├── requirements.txt
 └── README.md
 
-🤖 Demo Preview
-Coming soon: Hosted on Hugging Face Spaces
+🖼️ Demo Preview
+Coming soon: Hosted on HuggingFace Spaces
+(Or feel free to clone and run locally!)
 
 🙋‍♀️ Author
 👩‍💻 Divyani Audichya
 📍 Bengaluru, India
-🔗 GitHub
+🔗 https://github.com/DIVYANI-DROID  | https://www.linkedin.com/in/divyaniaudichya/
 
-⭐️ If you like this project...
-Give it a ⭐️ on GitHub, or connect with me on LinkedIn!
-This is part of my journey toward a Data Scientist / ML Engineer role at companies like Atlassian, Google, and Microsoft.
+⭐️ Support
+If this project inspired you or helped you learn:
+
+⭐️ Star the repo
+
+🗣️ Share it on LinkedIn or X (Twitter)
+
+📬 Or connect to chat about data science and AI!
+
+This is part of my journey toward a Data Scientist / ML Engineer role at top product companies like Atlassian, Google, and Microsoft.
 
 
----
-
-Once you paste that into `README.md`, save it, then commit & push:
-
-```bash
-git add README.md
-git commit -m "Update README to reflect Streamlit UI and project structure"
-git push
